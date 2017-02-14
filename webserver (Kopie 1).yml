@@ -7,6 +7,8 @@
     - { role: dns_zonenodes, tags: dns_zonenodes }
     - { role: nginx, tags: nginx }
   vars:
+    - include_vars:
+      dir: 'vars'
     - networkd_configures: 
       - iface: eth0 
         addresses:
@@ -43,6 +45,3 @@
     - nginx_sites:
       - domain: fnorden.net
         root: /var/www/fnorden.net
-  vars_files:
-      - vars/dns-zonefile.yml
-      - vars/dns-static.yml
